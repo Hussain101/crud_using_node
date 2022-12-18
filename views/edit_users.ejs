@@ -1,0 +1,91 @@
+<%- include('layouts/header') %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 mx-auto">
+      <div class="card shadow p-3">
+        <div class="col-lg-12 p-3 mb-2 bg-success text-white text-center">
+          Edit user (<%= user.name %> )
+        </div>
+        <div class="card-body">
+          <form
+            action="/update/<%= user._id %> "
+            method="post"
+            id="contact-form"
+            enctype="multipart/form-data"
+          >
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Name</label>
+              <input
+                name="name"
+                value="<%= user.name %> "
+                type="text"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+              />
+              <div id="emailHelp" class="form-text">
+                We'll never share your email with anyone else.
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label"
+                >Email address</label
+              >
+              <input
+                name="email"
+                value="<%= user.email %> "
+                type="email"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+              />
+              <div id="emailHelp" class="form-text">
+                We'll never share your email with anyone else.
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Phone</label>
+              <input
+                name="phone"
+                value="<%= user.phone %> "
+                type="number"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+              />
+              <div id="emailHelp" class="form-text">
+                We'll never share your email with anyone else.
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="formFile" class="form-label">Select a file</label>
+              <input
+                class="form-control"
+                name="image"
+                type="file"
+                id="formFile"
+              />
+              <img
+                src="/<%= user.image %> "
+                width="100"
+                class="img-thumbnail mt-1"
+              />
+              <input
+                type="hidden"
+                name="old_image"
+                value="<%= user.image %> "
+              />
+            </div>
+            <button type="submit" class="btn btn-success w-100">
+              Update user
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('layouts/footer') %>
